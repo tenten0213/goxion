@@ -24,11 +24,11 @@ func main() {
 	app.Email = ""
 	app.Usage = ""
 	app.Flags = []cli.Flag{
-		cli.StringFlag{Name: "username, u", Usage: "userId for login."},
-		cli.StringFlag{Name: "password, p", Usage: "password for login."},
-		cli.StringFlag{Name: "pjid, i", Usage: "projectid for login."},
-		cli.StringFlag{Name: "url, r", Usage: "login page's url."},
-		cli.StringFlag{Name: "matrixpath, m", Usage: "path to matrix file."},
+		cli.StringFlag{Name: "username, u", Usage: "userId for login. ENV is GOXION_USER."},
+		cli.StringFlag{Name: "password, p", Usage: "password for login. ENV is GOXION_PASSWORD."},
+		cli.StringFlag{Name: "pjid, i", Usage: "projectid for login. ENV is GOXION_PJID."},
+		cli.StringFlag{Name: "url, r", Usage: "login page's url. ENV is GOXION_URL."},
+		cli.StringFlag{Name: "matrixpath, m", Usage: "path to matrix file. ENV is GOXION_MATRIX."},
 	}
 	app.Action = func(c *cli.Context) error {
 		username := os.Getenv("GOXION_USER"); if username == "" {
